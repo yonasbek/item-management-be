@@ -7,7 +7,7 @@ require('dotenv').config();
 var cors = require('cors')
 
 const bodyParser = require('body-parser');
-const item = require('./controller/employee');
+const item = require('./controller/itemController.js');
 const { Pool } = require('pg');
 
 const pool = new Pool({

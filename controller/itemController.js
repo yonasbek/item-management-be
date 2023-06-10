@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const item = require('../models/item')
 router.get('/', (req, res) => {
-    item.find().then(data => {
+    item.findAll().then(data => {
             res.status(200).json(data);
         })
         .catch(err => {
@@ -53,12 +53,14 @@ router.delete('/:ID', (req, res) => {
             res.status(400).json(err);
         });
 });
-router.patch('/:ID', (req, res) => {
-    item.updateOne({ _id: req.params.ID }, req.body).then(data => {
-            res.status(200).json(data);
-        })
-        .catch(err => {
-            res.status(400).json(err);
-        });
+router.put('/:ID', (req, res) => {
+    console.log(req.body);
+    item.update({ ... req.body }, { where: { id: req.params.ID } })
+ .then(result => {
+    res.status(200).json(result);
+  })
+ .catch(error => {
+    res.status(400).json(error);
+  });
 });
 module.exports = router;
