@@ -28,7 +28,7 @@ pool.connect((err, client, done) => {
     console.log('Connected to PostgreSQL database');
   });
 
-app.use('/item', item);
+app.use('/item_mowe', item);
 
 
 app.get('/', (req, res) => {

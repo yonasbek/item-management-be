@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
         organization_name: req.body.organizationName,
         focal_person_name: req.body.focalPersonName,
         focal_person_number: req.body.focalPersonNumber,
+        status: req.body.status,
         updatedAt: Date.now(),
         createdAt:Date.now()
 
